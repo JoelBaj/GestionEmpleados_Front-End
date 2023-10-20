@@ -1,0 +1,33 @@
+<div class="formularioRegistro">
+    <h2>Crear persona</h2>
+    <form [formGroup]="personaForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" formControlName="apellido" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Edad</label>
+            <input type="number" formControlName="edad" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Pais</label>
+            <select name="pais" id="pais" formControlName="pais" class="form-control">
+                <option [ngValue]="item.id" *ngFor="let item of paises">{{item.nombre}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Estado o Region</label>
+            <select name="estado" id="estado" formControlName="estado" class="form-control">
+                <option [ngValue]="item" *ngFor="let item of estados">{{item.nombre}}</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+
+<router-outlet></router-outlet>
